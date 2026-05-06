@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan Molino - IT Student</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      font-size: 16px;
+    }
+
+    .sidebar {
+      width: 400px;
+      background: #fafbfc;
+      padding: 48px 32px;
+      text-align: center;
+      border-right: 1px solid #e2e8f0;
+      box-shadow: 4px 0 16px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 #f1f5f9;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #ffffff, #ffffff);
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: rgb(255, 255, 255);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar h2 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #1e293b;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .sidebar .title {
+      font-size: 19px;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    .info {
+      text-align: left;
+      font-size: 16px;
+      color: #475569;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(206, 45, 45, 0.06);
+      overflow: visible;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 24px 0;
+    }
+
+    .info-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .info-icon {
+      width: 23px;
+      height: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(196, 206, 214);
+      color: white;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      color: #475569;
+      padding-left: 36px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      font-weight: 600;
+    }
+
+    .main {
+      flex: 1;
+      padding: 64px 48px;
+      max-width: 100%;
+      border: 1px solid #e2e8f0;
+      min-height: 100vh;
+    }
+
+    .hero {
+      margin-bottom: 72px;
+      padding-bottom: 40px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      color: #1e293b;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: #64748b;
+      font-weight: 500;
+      max-width: 800px;
+      line-height: 1.7;
+      padding: 28px;
+      background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+      border-left: 4px solid #475569;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #1e293b;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #f1f5f9;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 36px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .card a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; }
+      .main { padding: 40px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <img src="profile picture.png" alt="Profile" class="profile-img">
+    <h2>Ethan Molino</h2>
+    <p class="title">IT Student</p>
+
+    <div class="info">
+      <div class="info-item">
+        <div class="info-label">
+          <div class="info-icon">✉️</div>
+          <strong>Email:</strong>
+        </div>
+        <div class="info-value">ethan.molino.29@gmail.com</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">
+          <div class="info-icon">📘</div>
+          <strong>Facebook:</strong>
+        </div>
+        <div class="info-value">Ethan Molino</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">
+          <div class="info-icon">🏫</div>
+          <strong>School:</strong>
+        </div>
+        <div class="info-value">PUP - Sto. Tomas</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">
+          <div class="info-icon">📍</div>
+          <strong>Location:</strong>
+        </div>
+        <div class="info-value">Calamba City, Laguna</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="hero">
+      <h1>About Me</h1>
+      <div class="hero-subtitle">
+        I am a sophomore student at Polytechnic University of the Philippines Sto. Tomas Campus, currently taking a
+        Diploma in Technology. I am focused on developing my technical skills and gaining practical knowledge that will
+        help me succeed in my future career.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>My Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Project 1</h3>
+          <p>
+            <a href="https://ethanmolino.github.io/Ethan.github.io/" target="_blank">Activity 2</a>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Project 2</h3>
+          <p>description</p>
+        </div>
+        <div class="card">
+          <h3>Project 3</h3>
+          <p>description</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

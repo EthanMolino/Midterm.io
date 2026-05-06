@@ -1,0 +1,58 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --accent: #6ebe8f;
+    --glass: rgba(22, 27, 34, 0.85);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #f0f6fc;
+    font-family: 'Inter', sans-serif;
+}
+
+.fw-extrabold { font-weight: 800; }
+
+.glass-nav {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-search {
+    background-color: #1c2128 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 12px 12px 0 !important;
+    color: var(--accent) !important; 
+    font-weight: 600;
+}
+
+.custom-search::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-weight: 400;
+}
+
+.custom-search:focus {
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.3) !important;
+    border-color: var(--accent) !important;
+    outline: none;
+}
+
+.char-card-wrapper { transition: all 0.3s ease; cursor: pointer; }
+.char-card-wrapper:hover { transform: translateY(-8px); }
+.char-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.badge-species { background: rgba(255, 255, 255, 0.1); font-size: 0.7rem; text-transform: uppercase; }
+
+.glass-modal { background: rgba(13, 17, 23, 0.98); backdrop-filter: blur(20px); border-radius: 30px; }
+.modal-profile-img { width: 140px; border-radius: 50%; border: 4px solid var(--accent); margin-top: -70px; }
+.bg-success-soft { background-color: rgba(46, 204, 113, 0.1); }
+
+footer {
+    opacity: 0.8;
+}

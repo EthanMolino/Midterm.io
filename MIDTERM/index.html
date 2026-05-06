@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty | Multiverse Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark glass-nav mb-5">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" alt="Logo"
+                    height="40">
+            </a>
+            <div class="ms-auto">
+                <span class="badge rounded-pill bg-success-soft text-success border border-success px-3 py-2"
+                    id="searchCount">
+                    Initializing...
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-extrabold text-white mb-3">Explore the Multiverse</h1>
+                <p class="lead text-secondary">Explore the character index of the Rick and Morty universe with real-time
+                    filtering.</p>
+
+                <div class="search-wrapper mt-4">
+                    <div class="input-group input-group-lg shadow-lg">
+                        <span class="input-group-text bg-dark border-secondary text-success">🔍</span>
+                        <input type="text" id="searchInput" class="form-control custom-search"
+                            placeholder="Search characters...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="character-container" class="row g-4 pb-5">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-grow text-success" role="status"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="characterModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal border-0">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center pt-0" id="modalBody"></div>
+                <div class="modal-footer border-0 justify-content-center pb-4">
+                    <button type="button" class="btn btn-outline-success rounded-pill px-5"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container text-center py-5 border-top border-secondary mt-5">
+        <p class="text-white fw-bold mb-0" style="letter-spacing: 1px;">ETHAN MOLINO</p>
+        <p class="text-secondary small">IT Student | PUP Sto. Tomas Campus</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
