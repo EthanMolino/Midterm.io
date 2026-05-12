@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -8,17 +8,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        [data-bs-theme="light"] body {
+            background-color: #f8f9fa !important;
+            color: #212529 !important;
+        }
+
+        [data-bs-theme="light"] .text-white,
+        [data-bs-theme="light"] h1,
+        [data-bs-theme="light"] h2,
+        [data-bs-theme="light"] h5,
+        [data-bs-theme="light"] b,
+        [data-bs-theme="light"] footer p {
+            color: #212529 !important;
+        }
+
+        [data-bs-theme="light"] .badge-species {
+            background: rgba(0, 0, 0, 0.1) !important;
+            color: #495057 !important;
+        }
+
+        [data-bs-theme="light"] .custom-search::placeholder {
+            color: #6c757d !important;
+        }
+
+        [data-bs-theme="light"] .custom-search {
+            background-color: #ffffff !important;
+            border: 1px solid #ced4da !important;
+            color: #212529 !important;
+        }
+
+        [data-bs-theme="light"] .char-card {
+            background-color: #ffffff !important;
+            border: 1px solid #dee2e6 !important;
+        }
+
+        [data-bs-theme="light"] .glass-nav {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        [data-bs-theme="light"] .glass-modal {
+            background: #ffffff !important;
+        }
+
+        [data-bs-theme="light"] .bg-dark {
+            background-color: #f1f3f5 !important;
+            border: 1px solid #dee2e6 !important;
+        }
+
+        [data-bs-theme="light"] .text-secondary {
+            color: #6c757d !important;
+        }
+    </style>
 </head>
 
-<body>
+<body id="mainBody">
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark glass-nav mb-5">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark glass-nav mb-5" id="navBar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" alt="Logo"
                     height="40">
             </a>
-            <div class="ms-auto">
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <button id="modeBtn" class="btn btn-outline-success btn-sm rounded-pill" onclick="switchTheme()">
+                    Light Mode
+                </button>
                 <span class="badge rounded-pill bg-success-soft text-success border border-success px-3 py-2"
                     id="searchCount">
                     Initializing...
@@ -55,7 +112,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content glass-modal border-0">
                 <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close btn-close-white" id="modalClose"
+                        data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center pt-0" id="modalBody"></div>
                 <div class="modal-footer border-0 justify-content-center pb-4">
@@ -70,6 +128,37 @@
         <p class="text-white fw-bold mb-0" style="letter-spacing: 1px;">ETHAN MOLINO</p>
         <p class="text-secondary small">IT Student | PUP Sto. Tomas Campus</p>
     </footer>
+
+    <script>
+        var mode = "dark";
+        var htmlElement = document.documentElement;
+        var modeBtn = document.getElementById("modeBtn");
+        var navBar = document.getElementById("navBar");
+        var modalClose = document.getElementById("modalClose");
+
+        function switchTheme() {
+            var nav = document.querySelector(".navbar");
+            var modalClose = document.querySelector(".btn-close");
+
+            if (mode == "dark") {
+                mode = "light";
+                htmlElement.setAttribute("data-bs-theme", "light");
+                modeBtn.innerHTML = "Dark Mode";
+                modeBtn.className = "btn btn-outline-dark btn-sm rounded-pill";
+
+                nav.classList.replace("navbar-dark", "navbar-light");
+                if (modalClose) modalClose.classList.replace("btn-close-white", "btn-close-dark");
+            } else {
+                mode = "dark";
+                htmlElement.setAttribute("data-bs-theme", "dark");
+                modeBtn.innerHTML = "Light Mode";
+                modeBtn.className = "btn btn-outline-success btn-sm rounded-pill";
+
+                nav.classList.replace("navbar-light", "navbar-dark");
+                if (modalClose) modalClose.classList.replace("btn-close-dark", "btn-close-white");
+            }
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
